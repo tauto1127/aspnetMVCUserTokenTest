@@ -7,8 +7,8 @@
 <form method="post" action="Register">
     <table border="1">
         <tr>
-            <th>名前</th>
-            <td><input type="text" id="namebox" name="name_box"/></td>
+            <th><label asp-for="Name"></label></th>
+            <td><input asp-for="Name" id="namebox" name="name_box"/></td>
         </tr>
     </table>
     <!-- 送信ボタンのtypeはsubmitを指定する -->
