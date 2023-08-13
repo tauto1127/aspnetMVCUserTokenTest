@@ -1,0 +1,15 @@
+@model webUserLoginTest.Views.User.UserViewModel
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+    
+}
+
+<h2>title</h2>
+@foreach (var item in Model.Users)
+{
+    <tr>
+        <td>@Html.DisplayFor(m => item.Id)</td>
+        <td>@Html.DisplayFor(m=>item.Name)</td>
+    </tr>
+}
