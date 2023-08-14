@@ -10,7 +10,8 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.10",
           "Microsoft.EntityFrameworkCore.Design": "7.0.10",
-          "Microsoft.EntityFrameworkCore.Sqlite": "7.0.10"
+          "Microsoft.EntityFrameworkCore.Sqlite": "7.0.10",
+          "PasswordUtil": "1.0.0.0"
         },
         "runtime": {
           "webUserLoginTest.dll": {}
@@ -421,6 +422,14 @@
             "fileVersion": "7.0.22.51805"
           }
         }
+      },
+      "PasswordUtil/1.0.0.0": {
+        "runtime": {
+          "PasswordUtil.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -632,6 +641,11 @@
       "sha512": "sha512-DaGSsVqKsn/ia6RG8frjwmJonfos0srquhw09TlT8KRw5I43E+4gs+/bZj4K0vShJ5H9imCuXupb4RmS+dBy3w==",
       "path": "system.text.json/7.0.0",
       "hashPath": "system.text.json.7.0.0.nupkg.sha512"
+    },
+    "PasswordUtil/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

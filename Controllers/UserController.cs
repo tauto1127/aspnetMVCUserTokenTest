@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using webUserLoginTest.Const;
 using webUserLoginTest.Data;
 using webUserLoginTest.Models;
 using webUserLoginTest.Models.ViewModel;
@@ -16,7 +17,7 @@ public class UserController : Controller
     // GET
     public IActionResult Index()
     {
-        return View(new UserViewModel(_context.Users));
+        return View(new UserIndexViewModel(_context));
     }
 
     public IActionResult Login()
@@ -31,8 +32,18 @@ public class UserController : Controller
     }
 
     [HttpPost]
-    public IActionResult Register(String name_box)
+    public IActionResult Register(String name_box, String password_box)
     {
+        DateTime _created = DateTime.Now;
+        byte[] _salt = PasswordUtil.PasswordUtil.GetInitialPasswordSalt(_created.ToString());
+        _context.Users.Add(new User()
+        {
+            Name = name_box,
+            PasswordHash = PasswordUtil.PasswordUtil.GetPasswordHashFromPepper(_salt, password_box, PasswordSalt.Salt),
+            PasswordSalt = _salt,
+            CreatedDate = _created,
+        });
+        _context.SaveChanges();
         return View("UserDetail", new SignupViewModel(){Name = name_box,Password = "aiueo"});
     }
 }

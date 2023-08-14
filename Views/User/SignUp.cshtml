@@ -3,12 +3,16 @@
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<h2>登録</h2>
 <form method="post" action="Register">
     <table border="1">
         <tr>
             <th><label asp-for="Name"></label></th>
             <td><input asp-for="Name" id="namebox" name="name_box"/></td>
+        </tr>
+        <tr>
+            <th><label asp-for="Password"></label></th>
+            <td><input asp-for="Password" id="passwordbox" name="password_box"/></td>
         </tr>
     </table>
     <!-- 送信ボタンのtypeはsubmitを指定する -->
