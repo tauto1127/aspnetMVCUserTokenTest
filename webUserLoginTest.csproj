@@ -15,4 +15,10 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.10" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="PasswordUtil">
+        <HintPath>..\..\..\Downloads\PasswordUtil.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>
