@@ -5,56 +5,57 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = webUserLoginTest
 build_property.RootNamespace = webUserLoginTest
-build_property.ProjectDir = /Users/takuto/RiderProjects/webUserLoginTest/webUserLoginTest/
+build_property.ProjectDir = /Users/takuto/RiderProjects/aspnetMVCUserTokenTest/
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/takuto/RiderProjects/webUserLoginTest/webUserLoginTest
+build_property.MSBuildProjectDirectory = /Users/takuto/RiderProjects/aspnetMVCUserTokenTest
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/takuto/RiderProjects/webUserLoginTest/webUserLoginTest/Views/Home/Index.cshtml]
+[/Users/takuto/RiderProjects/aspnetMVCUserTokenTest/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/takuto/RiderProjects/webUserLoginTest/webUserLoginTest/Views/Home/Privacy.cshtml]
+[/Users/takuto/RiderProjects/aspnetMVCUserTokenTest/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/takuto/RiderProjects/webUserLoginTest/webUserLoginTest/Views/Shared/Error.cshtml]
+[/Users/takuto/RiderProjects/aspnetMVCUserTokenTest/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/takuto/RiderProjects/webUserLoginTest/webUserLoginTest/Views/Shared/_ValidationScriptsPartial.cshtml]
+[/Users/takuto/RiderProjects/aspnetMVCUserTokenTest/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/takuto/RiderProjects/webUserLoginTest/webUserLoginTest/Views/User/Index.cshtml]
+[/Users/takuto/RiderProjects/aspnetMVCUserTokenTest/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/takuto/RiderProjects/webUserLoginTest/webUserLoginTest/Views/User/Login.cshtml]
+[/Users/takuto/RiderProjects/aspnetMVCUserTokenTest/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/takuto/RiderProjects/webUserLoginTest/webUserLoginTest/Views/User/SignUp.cshtml]
+[/Users/takuto/RiderProjects/aspnetMVCUserTokenTest/Views/User/SignUp.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9TaWduVXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/takuto/RiderProjects/webUserLoginTest/webUserLoginTest/Views/User/UserDetail.cshtml]
+[/Users/takuto/RiderProjects/aspnetMVCUserTokenTest/Views/User/UserDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9Vc2VyRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/takuto/RiderProjects/webUserLoginTest/webUserLoginTest/Views/_ViewImports.cshtml]
+[/Users/takuto/RiderProjects/aspnetMVCUserTokenTest/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/takuto/RiderProjects/webUserLoginTest/webUserLoginTest/Views/_ViewStart.cshtml]
+[/Users/takuto/RiderProjects/aspnetMVCUserTokenTest/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/takuto/RiderProjects/webUserLoginTest/webUserLoginTest/Views/Shared/_Layout.cshtml]
+[/Users/takuto/RiderProjects/aspnetMVCUserTokenTest/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-hqa2tw67r8

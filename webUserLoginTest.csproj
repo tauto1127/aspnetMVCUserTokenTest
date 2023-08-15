@@ -17,7 +17,7 @@
 
     <ItemGroup>
       <Reference Include="PasswordUtil">
-        <HintPath>..\..\..\Downloads\PasswordUtil.dll</HintPath>
+        <HintPath>..\..\Downloads\PasswordUtil.dll</HintPath>
       </Reference>
     </ItemGroup>
 
