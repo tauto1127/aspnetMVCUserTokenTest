@@ -1,0 +1,2 @@
+# aspnetMVCUserTokenTest
+JWTは「ジョット」というらしい
