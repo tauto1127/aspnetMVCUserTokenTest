@@ -1,3 +1,5 @@
+using JWT.Algorithms;
+using JWT.Builder;
 using Microsoft.AspNetCore.Mvc;
 using webUserLoginTest.Const;
 using webUserLoginTest.Data;
@@ -45,5 +47,20 @@ public class UserController : Controller
         });
         _context.SaveChanges();
         return View("UserDetail", new SignupViewModel(){Name = name_box,Password = "aiueo"});
+    }
+
+    [HttpGet]
+    public string Test()
+    {
+        const string secret = "秘密鍵文字列";
+        var jwtToken = new JwtBuilder()
+            .WithAlgorithm(new HMACSHA256Algorithm())
+            .WithSecret(secret)
+            .AddClaim("exp", DateTimeOffset.UtcNow.AddHours(3).ToUnixTimeSeconds())
+            .AddClaim("email", "tata@tata.com")
+            .AddClaim("data1", "hello")
+            .Encode();
+        Console.WriteLine(jwtToken);
+        return jwtToken;
     }
 }
