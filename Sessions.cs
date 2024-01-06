@@ -9,7 +9,7 @@ public class Sessions
 {
     private static Dictionary<byte[], Session> _sessions = [];
     private static Random _random;
-    
+
     /*
      * sessionidの算出方法
      * 算出したdatetime + ユーザーID + パスワード + ランダム数字をハッシュ関数に投げる
@@ -29,7 +29,7 @@ public class Sessions
         }
         _sessions.Add(sessionId, new Session(
             userId: user.Id, expiration: now.AddMinutes(2), acquisition: now));
-        
+
         return sessionId;
     }
 

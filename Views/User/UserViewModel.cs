@@ -10,5 +10,5 @@ public class UserViewModel
     {
         this.Users = users;
     }
-    
+
 }

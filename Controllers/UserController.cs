@@ -49,7 +49,7 @@ public class UserController : Controller
         var res = _context.Users.Add(user);
         _context.SaveChanges();
         Response.Headers["Set-Cookie"] = "sessionid=" + System.Net.WebUtility.UrlEncode(System.Text.Encoding.Unicode.GetString(Sessions.Add(res.Entity)));
-        return View("UserDetail", new SignupViewModel(){Name = name_box,Password = "aiueo"});
+        return View("UserDetail", new SignupViewModel() { Name = name_box, Password = "aiueo" });
     }
 
     [HttpGet]
