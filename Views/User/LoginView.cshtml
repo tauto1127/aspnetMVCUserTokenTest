@@ -1,0 +1,24 @@
+@model webUserLoginTest.Models.ViewModel.LoginViewModel
+@{
+    Layout = "_Layout";
+}
+
+<h2>ログイン</h2>
+<form method="post" action="Login">
+    <table border="1">
+        <tr>
+            <th><label asp-for="Name"></label></th>
+            <td><input asp-for="Name" id="namebox" name="name_box"/></td>
+        </tr>
+        <tr>
+            <th><label asp-for="Password"></label></th>
+            <td><input asp-for="Password" id="passwordbox" name="password_box"/></td>
+        </tr>
+    </table>
+    <!-- 送信ボタンのtypeはsubmitを指定する -->
+    <input type="submit" value="送信2" />
+    @if (Model.IsValid == false)
+    {
+       <h1>ユーザー名かパスワードが違います。</h1> 
+    }
+</form>

@@ -1,14 +1,13 @@
-using webUserLoginTest.Data;
-
-namespace webUserLoginTest.Views.User;
-
-public class UserViewModel
+namespace webUserLoginTest.Views.User
 {
-    public IEnumerable<Models.User> Users { get; set; }
-
-    public UserViewModel(IEnumerable<Models.User> users)
+    public class UserViewModel
     {
-        this.Users = users;
-    }
+        public IEnumerable<Models.User> Users { get; set; }
 
+        public UserViewModel(IEnumerable<Models.User> users)
+        {
+            this.Users = users;
+        }
+
+    }
 }
