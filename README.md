@@ -1,7 +1,2 @@
 # aspnetMVCUserTokenTest
-cookieを使ったセッション管理
-chatgptにレビューしてもらうときのおすすめのモデルを教えてください
-chatgptにレビューしてもらうときのおすすめのモデルを教えてください
-chatgptにレビューしてもらうときのおすすめのモデルを教えてください
-chatgptにレビューしてもらうときのおすすめのモデルを教えてください
-chatgptにレビューしてもらうときのおすすめのモデルを教えてください
+https://github.com/tauto1127/PasswordPepper
