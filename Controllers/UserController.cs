@@ -1,7 +1,9 @@
+using System.Runtime.InteropServices;
 using System.Text;
 using JWT.Algorithms;
 using JWT.Builder;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using webUserLoginTest.Const;
 using webUserLoginTest.Data;
 using webUserLoginTest.Models;
@@ -24,7 +26,18 @@ namespace webUserLoginTest.Controllers
 
         public IActionResult LoginView()
         {
-            return View();
+            var sessionid = Request.Cookies["sessionid"];
+            if(sessionid == null) return View("LoginView", new LoginViewModel());
+            Console.WriteLine("んん？");
+            foreach (var b in Encoding.Unicode.GetBytes(System.Net.WebUtility.UrlDecode(sessionid)))
+            {
+                Console.WriteLine(b);
+            }
+            var userId = Sessions.GetUserId(Encoding.Unicode.GetBytes(System.Net.WebUtility.UrlDecode(sessionid)));
+            if (userId == -1) return View("LoginView", new LoginViewModel());
+            User user = _context.Users.Find(userId);
+            return View("UserDetail",
+                new SignupViewModel() { Name = user.Name, Password = user.PasswordHash.ToString() });
         }
 
         public IActionResult SignUpView()
@@ -54,8 +67,8 @@ namespace webUserLoginTest.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(String name_box, String password_box)
         {
-            User? user = _context.Users.First(x => x.Name == name_box);
-            if (user == null) return View("Error");
+            User? user = await _context.Users.SingleOrDefaultAsync(s => s.Name == name_box);
+            if (user == null) return View("LoginView", new LoginViewModel(isValid: false));
             var passwordHash =
                 PasswordUtil.PasswordUtil.GetPasswordHashFromPepper(user.PasswordSalt, password_box, PasswordSalt.Salt);
             if (Encoding.Unicode.GetString(passwordHash) == Encoding.Unicode.GetString(user.PasswordHash))
@@ -67,7 +80,7 @@ namespace webUserLoginTest.Controllers
             }
             else
             {
-                return View("Error");
+                return View("LoginView", new LoginViewModel(isValid: false));
             }
         }
 

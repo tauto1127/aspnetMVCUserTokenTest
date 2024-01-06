@@ -1,4 +1,4 @@
-@model webUserLoginTest.Models.ViewModel.SignupViewModel
+@model webUserLoginTest.Models.ViewModel.LoginViewModel
 @{
     Layout = "_Layout";
 }
@@ -17,4 +17,8 @@
     </table>
     <!-- 送信ボタンのtypeはsubmitを指定する -->
     <input type="submit" value="送信2" />
+    @if (Model.IsValid == false)
+    {
+       <h1>ユーザー名かパスワードが違います。</h1> 
+    }
 </form>
