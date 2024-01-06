@@ -1,6 +1,7 @@
-namespace webUserLoginTest.Const;
-
-public class PasswordSalt
+namespace webUserLoginTest.Const
 {
-    public static string Salt = "ラーメンが食べたい";
+    public class PasswordSalt
+    {
+        public static string Salt = "ラーメンが食べたい";
+    }
 }

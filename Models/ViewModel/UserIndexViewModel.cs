@@ -1,15 +1,16 @@
 using webUserLoginTest.Data;
 
-namespace webUserLoginTest.Models.ViewModel;
-
-public class UserIndexViewModel
+namespace webUserLoginTest.Models.ViewModel
 {
-    private readonly UserContext _context;
-    public IList<User> Users { get; set; }
-
-    public UserIndexViewModel(UserContext context)
+    public class UserIndexViewModel
     {
-        this._context = context;
-        Users = _context.Users.Take(10).ToList();
+        private readonly UserContext _context;
+        public IList<User> Users { get; set; }
+
+        public UserIndexViewModel(UserContext context)
+        {
+            this._context = context;
+            Users = _context.Users.Take(10).ToList();
+        }
     }
 }

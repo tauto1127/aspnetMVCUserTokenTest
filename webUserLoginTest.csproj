@@ -3,7 +3,9 @@
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
+        <NullableContextOptions>enable</NullableContextOptions>
     </PropertyGroup>
 
     <ItemGroup>
@@ -21,5 +23,4 @@
         <HintPath>..\..\Downloads\PasswordUtil.dll</HintPath>
       </Reference>
     </ItemGroup>
-
 </Project>

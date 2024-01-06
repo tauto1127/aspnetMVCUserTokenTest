@@ -1,15 +1,17 @@
-namespace webUserLoginTest.Models;
 
-public class Session
+namespace webUserLoginTest.Models
 {
-    public int userId { get; }
-    public DateTime expiration { get; }
-    public DateTime acquisition { get; }
-
-    public Session(int userId, DateTime expiration, DateTime acquisition)
+    public class Session
     {
-        this.userId = userId;
-        this.expiration = expiration;
-        this.acquisition = acquisition;
+        public int userId { get; }
+        public DateTime expiration { get; }
+        public DateTime acquisition { get; }
+
+        public Session(int userId, DateTime expiration, DateTime acquisition)
+        {
+            this.userId = userId;
+            this.expiration = expiration;
+            this.acquisition = acquisition;
+        }
     }
 }
