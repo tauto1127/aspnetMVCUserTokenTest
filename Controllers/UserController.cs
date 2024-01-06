@@ -1,3 +1,4 @@
+using System.Net.Mime;
 using JWT.Algorithms;
 using JWT.Builder;
 using Microsoft.AspNetCore.Mvc;
@@ -38,14 +39,16 @@ public class UserController : Controller
     {
         DateTime _created = DateTime.Now;
         byte[] _salt = PasswordUtil.PasswordUtil.GetInitialPasswordSalt(_created.ToString());
-        _context.Users.Add(new User()
+        User user = new User()
         {
             Name = name_box,
             PasswordHash = PasswordUtil.PasswordUtil.GetPasswordHashFromPepper(_salt, password_box, PasswordSalt.Salt),
             PasswordSalt = _salt,
             CreatedDate = _created,
-        });
+        };
+        var res = _context.Users.Add(user);
         _context.SaveChanges();
+        Response.Headers["Set-Cookie"] = "sessionid=" + System.Net.WebUtility.UrlEncode(System.Text.Encoding.Unicode.GetString(Sessions.Add(res.Entity)));
         return View("UserDetail", new SignupViewModel(){Name = name_box,Password = "aiueo"});
     }
 

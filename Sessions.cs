@@ -7,7 +7,7 @@ namespace webUserLoginTest;
 
 public class Sessions
 {
-    private static Dictionary<byte[], Session> _sessions;
+    private static Dictionary<byte[], Session> _sessions = [];
     private static Random _random;
     
     /*
@@ -25,7 +25,7 @@ public class Sessions
         DateTime now = DateTime.Now;
         using (var hmac = SHA256.Create())
         {
-            sessionId = hmac.ComputeHash(Encoding.Unicode.GetBytes(now.ToString() + user.Id + " " + _random.Next()));
+            sessionId = hmac.ComputeHash(Encoding.ASCII.GetBytes(now.ToString() + user.Id + " " + _random.Next()));
         }
         _sessions.Add(sessionId, new Session(
             userId: user.Id, expiration: now.AddMinutes(2), acquisition: now));
