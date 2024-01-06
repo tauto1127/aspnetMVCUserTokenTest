@@ -27,7 +27,7 @@ namespace webUserLoginTest.Controllers
         public IActionResult LoginView()
         {
             var sessionid = Request.Cookies["sessionid"];
-            if(sessionid == null) return View("LoginView", new LoginViewModel());
+            if (sessionid == null) return View("LoginView", new LoginViewModel());
             Console.WriteLine("んん？");
             foreach (var b in Encoding.Unicode.GetBytes(System.Net.WebUtility.UrlDecode(sessionid)))
             {

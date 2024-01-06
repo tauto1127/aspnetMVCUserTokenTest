@@ -23,16 +23,16 @@ public class Sessions
     {
         byte[] sessionId;
         Console.WriteLine("セッションに追加：");
-        
+
         DateTime now = DateTime.Now;
         using (var hmac = SHA256.Create())
         {
             sessionId = hmac.ComputeHash(Encoding.ASCII.GetBytes(now.ToString() + user.Id + " " + _random.Next()));
         }
         foreach (var b in sessionId)
-         {
-             Console.WriteLine(b);
-         }
+        {
+            Console.WriteLine(b);
+        }
         _sessions.Add(sessionId, new Session(
             userId: user.Id, expiration: now.AddMinutes(2), acquisition: now));
 
@@ -53,26 +53,34 @@ public class Sessions
         return session.userId;
     }
 }
-public class ByteArrayComparer : IEqualityComparer<byte[]> {
-    public bool Equals(byte[]? left, byte[]? right) {
-        if ( left == null || right == null ) {
+public class ByteArrayComparer : IEqualityComparer<byte[]>
+{
+    public bool Equals(byte[]? left, byte[]? right)
+    {
+        if (left == null || right == null)
+        {
             return left == right;
         }
-        if ( left.Length != right.Length ) {
+        if (left.Length != right.Length)
+        {
             return false;
         }
-        for ( int i= 0; i < left.Length; i++) {
-            if ( left[i] != right[i] ) {
+        for (int i = 0; i < left.Length; i++)
+        {
+            if (left[i] != right[i])
+            {
                 return false;
             }
         }
         return true;
     }
-    public int GetHashCode(byte[] key) {
+    public int GetHashCode(byte[] key)
+    {
         if (key == null)
             throw new ArgumentNullException(nameof(key));
         int sum = 0;
-        foreach ( byte cur in key ) {
+        foreach (byte cur in key)
+        {
             sum += cur;
         }
         return sum;
