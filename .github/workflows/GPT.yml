@@ -11,7 +11,7 @@ on:
 jobs:
   test:
     #if: ${{ contains(github.event.*.labels.*.name, 'review') }} # Optional; to run only when a label is attached
-    if: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'review') }}
+    #if: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'review') }}
     runs-on: ubuntu-latest
     steps:
       - uses: anc95/ChatGPT-CodeReview@main
