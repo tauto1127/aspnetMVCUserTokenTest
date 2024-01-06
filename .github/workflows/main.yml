@@ -21,7 +21,7 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: ls
+      run: dotnet format webUserLoginTest.sln
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
