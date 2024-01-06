@@ -1,2 +1,2 @@
 # aspnetMVCUserTokenTest
-JWTは「ジョット」というらしい
+cookieを使ったセッション管理
