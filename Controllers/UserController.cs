@@ -8,6 +8,7 @@ using webUserLoginTest.Const;
 using webUserLoginTest.Data;
 using webUserLoginTest.Models;
 using webUserLoginTest.Models.ViewModel;
+using webUserLoginTest.Util;
 
 namespace webUserLoginTest.Controllers
 {
@@ -50,11 +51,11 @@ namespace webUserLoginTest.Controllers
         public IActionResult Register(String name_box, String password_box)
         {
             DateTime _created = DateTime.Now;
-            byte[] _salt = PasswordUtil.PasswordUtil.GetInitialPasswordSalt(_created.ToString());
+            byte[] _salt = PasswordUtil.GetInitialPasswordSalt(_created.ToString());
             User user = new User()
             {
                 Name = name_box,
-                PasswordHash = PasswordUtil.PasswordUtil.GetPasswordHashFromPepper(_salt, password_box, PasswordSalt.Salt),
+                PasswordHash = PasswordUtil.GetPasswordHashFromPepper(_salt, password_box, PasswordSalt.Salt),
                 PasswordSalt = _salt,
                 CreatedDate = _created,
             };
@@ -70,7 +71,7 @@ namespace webUserLoginTest.Controllers
             User? user = await _context.Users.SingleOrDefaultAsync(s => s.Name == name_box);
             if (user == null) return View("LoginView", new LoginViewModel(isValid: false));
             var passwordHash =
-                PasswordUtil.PasswordUtil.GetPasswordHashFromPepper(user.PasswordSalt, password_box, PasswordSalt.Salt);
+                PasswordUtil.GetPasswordHashFromPepper(user.PasswordSalt, password_box, PasswordSalt.Salt);
             if (Encoding.Unicode.GetString(passwordHash) == Encoding.Unicode.GetString(user.PasswordHash))
             {
                 Response.Headers["Set-Cookie"] = "sessionid=" +
