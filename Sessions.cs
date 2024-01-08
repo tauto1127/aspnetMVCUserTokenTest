@@ -52,6 +52,16 @@ public class Sessions
 
         return session.userId;
     }
+            //var userId = Sessions.GetUserId(Encoding.Unicode.GetBytes(System.Net.WebUtility.UrlDecode(sessionid)));
+            public static byte[] ConvertSessionIdToByte(string sessionId)
+            {
+                return Encoding.Unicode.GetBytes(System.Net.WebUtility.UrlDecode(sessionId));
+            }
+
+            public static void Remove(byte[] sessionId)
+            {
+                _sessions.Remove(sessionId);
+            }
 }
 public class ByteArrayComparer : IEqualityComparer<byte[]>
 {
