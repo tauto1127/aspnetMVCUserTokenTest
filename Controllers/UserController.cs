@@ -53,7 +53,7 @@ namespace webUserLoginTest.Controllers
             var signUpViewModel = new SignupViewModel() { Name = "ta", Password = "" };
             return View(signUpViewModel);
         }
-        
+
         [AllowAnonymous]
         [HttpPost]
         public IActionResult Register(String name_box, String password_box)

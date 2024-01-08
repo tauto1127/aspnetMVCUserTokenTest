@@ -10,7 +10,7 @@ using Index = Microsoft.EntityFrameworkCore.Metadata.Internal.Index;
 
 namespace webUserLoginTest.CustomFilters;
 
-public class UserAuthorizationFilterAttribute: ActionFilterAttribute, IAuthorizationFilter
+public class UserAuthorizationFilterAttribute : ActionFilterAttribute, IAuthorizationFilter
 {
     public void OnAuthorization(AuthorizationFilterContext context)
     {
@@ -26,7 +26,7 @@ public class UserAuthorizationFilterAttribute: ActionFilterAttribute, IAuthoriza
 
         string sessionid = context.HttpContext.Request.Cookies["sessionid"];
         int id = Sessions.GetUserId(Sessions.ConvertSessionIdToByte(sessionid));
-        
+
         if (id == -1) context.Result = new RedirectToActionResult(actionName: "NotFound", controllerName: "Home", "");
     }
 }
