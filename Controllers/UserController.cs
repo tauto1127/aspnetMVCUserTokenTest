@@ -1,11 +1,10 @@
+using System.Runtime.InteropServices;
 using System.Text;
 using JWT.Algorithms;
 using JWT.Builder;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using webUserLoginTest.Const;
-using webUserLoginTest.CustomFilters;
 using webUserLoginTest.Data;
 using webUserLoginTest.Models;
 using webUserLoginTest.Models.ViewModel;
@@ -13,7 +12,6 @@ using webUserLoginTest.Util;
 
 namespace webUserLoginTest.Controllers
 {
-    [UserAuthorizationFilter]
     public class UserController : Controller
     {
         private readonly UserContext _context;
@@ -27,34 +25,28 @@ namespace webUserLoginTest.Controllers
             return View(new UserIndexViewModel(_context));
         }
 
-        [AllowAnonymous]
         public IActionResult LoginView()
         {
             var sessionid = Request.Cookies["sessionid"];
             if (sessionid == null) return View("LoginView", new LoginViewModel());
+            Console.WriteLine("んん？");
+            foreach (var b in Encoding.Unicode.GetBytes(System.Net.WebUtility.UrlDecode(sessionid)))
+            {
+                Console.WriteLine(b);
+            }
             var userId = Sessions.GetUserId(Encoding.Unicode.GetBytes(System.Net.WebUtility.UrlDecode(sessionid)));
             if (userId == -1) return View("LoginView", new LoginViewModel());
             User user = _context.Users.Find(userId);
-            if (user != null)
-                return View("UserDetail",
-                    new SignupViewModel() { Name = user.Name, Password = user.PasswordHash.ToString() });
-            else return View("Index");
+            return View("UserDetail",
+                new SignupViewModel() { Name = user.Name, Password = user.PasswordHash.ToString() });
         }
 
-        public IActionResult Logout()
-        {
-            Sessions.Remove(Sessions.ConvertSessionIdToByte(Request.Cookies["sessionid"]));
-            return RedirectToAction(actionName: "Index", controllerName: "Home");
-        }
-
-        [AllowAnonymous]
         public IActionResult SignUpView()
         {
-            var signUpViewModel = new SignupViewModel() { Name = "ta", Password = "" };
-            return View(signUpViewModel);
+            var _signUpViewModel = new SignupViewModel() { Name = "ta", Password = "" };
+            return View(_signUpViewModel);
         }
 
-        [AllowAnonymous]
         [HttpPost]
         public IActionResult Register(String name_box, String password_box)
         {
@@ -73,7 +65,6 @@ namespace webUserLoginTest.Controllers
             return View("UserDetail", new SignupViewModel() { Name = name_box, Password = "aiueo" });
         }
 
-        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login(String name_box, String password_box)
         {
